@@ -13,19 +13,20 @@ library(shiny)
 shinyUI(fluidPage(
 
     # Application title
-    titlePanel("Old Faithful Geyser Data"),
+    titlePanel("Car Speed Data"),
 
-    # Sidebar with a slider input for number of bins
+    # Sidebar with a radio Button
     sidebarLayout(
         sidebarPanel(
-            sliderInput("bins",
-                        "Number of bins:",
-                        min = 1,
-                        max = 50,
-                        value = 30)
+            p("Select the data to calculate the mean Speed"),
+            br(),
+            radioButtons("Direção", label = NULL, 
+                               choices = c("Sintra-MemMartins", 
+                                           "MemMartins-Sintra", "Both"),
+                               selected = "Both")
         ),
 
-        # Show a plot of the generated distribution
+        # Show a plot
         mainPanel(
             plotOutput("distPlot")
         )

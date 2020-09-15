@@ -8,18 +8,30 @@
 #
 
 library(shiny)
+library(ggplot2)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
 
     output$distPlot <- renderPlot({
 
-        # generate bins based on input$bins from ui.R
-        x    <- faithful[, 2]
-        bins <- seq(min(x), max(x), length.out = input$bins + 1)
-
-        # draw the histogram with the specified number of bins
-        hist(x, breaks = bins, col = 'darkgray', border = 'white')
+        # make a df with the selected Direction
+        if (input$Direção == "Both") {
+            x <- myData
+        }else{
+        x    <- filter(myData, Direção == input$Direção)
+        }
+        
+        print(mean(x$Velocidade))
+        
+        # draw the plot with mean calculation
+        ggplot(myData, aes(Data, Velocidade, color = Direção)) + 
+            geom_point() +
+            geom_hline(yintercept = mean(x$Velocidade)) +
+            annotate("text", x = as.POSIXct("2020-08-05"), 
+                     y = mean(x$Velocidade)+3, 
+                     label = paste(round(mean(x$Velocidade)), 
+                                   "Km/h", sep = " "))
 
     })
 
