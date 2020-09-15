@@ -1,0 +1,45 @@
+---
+title: "Car Speed Presentation"
+author: "Vasco Pereira"
+date: "9/15/2020"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, include = FALSE, message = FALSE)
+```
+
+## Abstract
+
+Drivers that circulate inside cities in Portugal have a maximum speed limit of 50 km/h, but the behaviour is not always in compliance with the law.
+After observing the possibility of high speeds in the road *Avenida Almirante Gago Coutinho* in *Mem-Martins*, *Sintra*, *Portugal*, the vehicle speed was measured with a **Raspberry Pi Zero W** and an exploratory data analysis was performed in **R**.
+It was verified that the vehicles moving from *Mem-Martins* to *Sintra* had a mean speed of **69 km/h** and from *Sintra* to *Mem-Martins* had a mean speed of **87 km/h**
+This road have a pedestrian crossing about 40 meters after the experimental measuring local, and two schools and a sports hall nearby that encourage the presence of many pedestrians in the sidewalk of this road.
+
+**About**
+
+To know more about this project in the original repo [carspeed](https://github.com/VascoRibeiroPereira/carspeed.py)
+
+## Data
+
+Data after cleaning:
+
+```{r }
+
+library(lubridate)
+library(dplyr)
+
+myData <- read.csv("cleanData.csv", 
+                       colClasses = c("factor", "POSIXct", "factor", "numeric"))
+
+myData <- as_tibble(myData)[,-1]
+
+```
+
+```{r, include=TRUE }
+
+str(myData)
+
+summary(myData)
+
+```
