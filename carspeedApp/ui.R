@@ -8,6 +8,9 @@
 #
 
 library(shiny)
+library(dplyr)
+library(lubridate)
+
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(

@@ -9,6 +9,14 @@
 
 library(shiny)
 library(ggplot2)
+library(dplyr)
+library(lubridate)
+
+myData <- read.csv("cleanData.csv", 
+                   colClasses = c("factor", "POSIXct", "factor", "numeric"))
+
+myData <- as_tibble(myData)[,-1]
+
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
