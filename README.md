@@ -4,7 +4,7 @@ This peer assessed assignment has two parts. First, you will create a Shiny appl
 
 Shiny Application - 
 
-Your Reproducible Pitch Presentation - [Presentation](https://www.dropbox.com/s/5zgldjzrpq64jie/index.html?dl=0)
+Your Reproducible Pitch Presentation - [Presentation](https://vascoribeiropereira.github.io/CourseProjectShinyApp/slides/Presentation.html#(1))
 
 ## About
 
