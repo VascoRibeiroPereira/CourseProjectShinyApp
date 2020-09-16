@@ -28,6 +28,7 @@ Data after cleaning:
 
 library(lubridate)
 library(dplyr)
+library(ggplot2)
 
 myData <- read.csv("cleanData.csv", 
                        colClasses = c("factor", "POSIXct", "factor", "numeric"))
@@ -43,3 +44,24 @@ str(myData)
 summary(myData)
 
 ```
+
+## Data Plot
+This is the seen data in the ShinyApp
+
+```{r, echo = FALSE, include= TRUE, fig.align='center'}
+
+gp <- ggplot(data = myData, 
+             mapping = aes(x = Data, y = Velocidade, color = Direção)) + 
+        geom_point(alpha = 1/2)
+
+gp
+
+```
+
+## Conclusion
+
+The possibility of high speeds in the road *Avenida Almirante Gago Coutinho* was confirmed with maximum speeds of **117 km/h** which is a crime in this location.   
+The mean speed can be verified in the ShinyApp in both directions. 
+
+The velocity is above the permitted values - **69 km/h** and **87 km/h**.   
+It is highly recommended the imposition of preventive measures such as speed bumps.   
