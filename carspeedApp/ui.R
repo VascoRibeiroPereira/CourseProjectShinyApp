@@ -8,6 +8,15 @@
 #
 
 library(shiny)
+library(dplyr)
+library(lubridate)
+
+
+myData <- read.csv("cleanData.csv", 
+                   colClasses = c("factor", "POSIXct", "factor", "numeric"))
+
+myData <- as_tibble(myData)[,-1]
+
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
