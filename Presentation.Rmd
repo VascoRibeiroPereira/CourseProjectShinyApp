@@ -29,7 +29,7 @@ Data after cleaning:
 library(lubridate)
 library(dplyr)
 library(ggplot2)
-
+ 
 myData <- read.csv("cleanData.csv", 
                        colClasses = c("factor", "POSIXct", "factor", "numeric"))
 
